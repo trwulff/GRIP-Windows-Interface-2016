@@ -1,0 +1,18 @@
+package Main;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+
+public class Canvas extends JPanel{
+	
+	public Canvas(){
+		
+	}
+    public  void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        DisplayBall.drawBall(g);
+    }
+
+}
