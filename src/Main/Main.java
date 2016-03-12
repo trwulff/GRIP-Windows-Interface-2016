@@ -87,7 +87,7 @@ public class Main extends JFrame {
 		
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		lblConnectionStatus = new JLabel("Disconnected");
+		lblConnectionStatus = new JLabel(CONECTION_STATUS_DISCONNECTED);
 		menuBar.add(lblConnectionStatus);
 		
 		mntmUrl = new JMenuItem(DEFAULT_URL);
@@ -202,7 +202,24 @@ public class Main extends JFrame {
 			}
 		}, true);
 		//contentPane.add( new Canvas());
+		//Ping.run(lblConnectionStatus);
 		//contentPane.repaint();
-		Ping.run(lblConnectionStatus);
+		
+		JMenuItem mntmLocalhost = new JMenuItem("LOCALHOST");
+		mntmLocalhost.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					mntmUrl.setText(java.net.InetAddress.getLocalHost().getHostAddress());;
+				}
+				catch(Exception ex){
+					System.out.println(ex);
+				}
+				prefTable.put(CURRENT_URL_NODE, mntmUrl.getText());
+				NetworkTable.globalDeleteAll();
+				NetworkTable.shutdown();
+				NetworkTable.setIPAddress(mntmUrl.getText());
+			}
+		});
+		menuBar.add(mntmLocalhost);
 	}
 }
