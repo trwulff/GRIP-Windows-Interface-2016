@@ -12,7 +12,9 @@ public class Canvas extends JPanel{
 	}
     public  void paintComponent(Graphics g) {
         super.paintComponent(g);
-        DisplayBall.drawBall(g);
+        TestBall.drawDisplays(g);
     }
-
+public static void addElement(){
+	
+}
 }

@@ -151,7 +151,7 @@ public class SettingsBall extends JFrame {
 		txtTargetOpacity = new JTextField();
 		txtTargetOpacity.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DisplayBall.setAlpha(Integer.parseInt(txtTargetOpacity.getText()));
+			//	DisplayBall.setAlpha(Integer.parseInt(txtTargetOpacity.getText()));
 			}
 		});
 		txtTargetOpacity.setHorizontalAlignment(SwingConstants.CENTER);
@@ -217,6 +217,7 @@ public class SettingsBall extends JFrame {
 		prefTable.put(MAX_XY_RATIO, txtMaxRatio.getText());
 		prefTable.put(TARGET_OFFSET, txtTargetOffset.getText());
 		prefTable.put(TARGET_OPACITY, txtTargetOpacity.getText());
+		Main.canvas.repaint();
 		dispose();
 	}
 }

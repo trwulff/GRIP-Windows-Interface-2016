@@ -33,7 +33,7 @@ public class Main extends JFrame {
 	static final String CONECTION_STATUS_VERIFYING_CONNECTION="Getting Connection Status";
 	static final String CONECTION_STATUS_CONNECTED="Connected";
 	static final String CONECTION_STATUS_DISCONNECTED="Disconnected";
-	public static  Canvas contentPane;
+	public static  Canvas canvas;
 	
 
 	JMenuItem mntmUrl;
@@ -165,6 +165,7 @@ public class Main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TestBall obj =new TestBall();
 				obj.setVisible(true);
+				canvas.repaint();
 			}
 		});
 		mnTest.add(mntmBall_1);
@@ -180,11 +181,11 @@ public class Main extends JFrame {
 		menuBar.add(horizontalStrut_1);
 		menuBar.add(mntmUrl);
 		
-		contentPane = new Canvas();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setBackground(Color.WHITE);
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		canvas = new Canvas();
+		canvas.setBorder(new EmptyBorder(5, 5, 5, 5));
+		canvas.setBackground(Color.WHITE);
+		setContentPane(canvas);
+		canvas.setLayout(null);
 		
 		
 		prefTable = Preferences.userRoot().node(BASE_NODE_NAME);
